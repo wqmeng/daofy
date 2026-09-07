@@ -664,7 +664,7 @@ begin
   end;
 
   // 常规 RTTI 点击
-  Ctrl := TComponent(FindNamedControl(Target));
+  Ctrl := F.FindComponent(Target);
   if Ctrl = nil then
     Exit(WriteResp(ReqId, 'err', 'NF:' + Target));
   if not IsCtrlVisible(Ctrl) then
@@ -1307,7 +1307,7 @@ var
   Root: TJSONObject;
   Methods: TJSONArray;
   Props: TJSONArray;
-  VisSet: set of TMemberVisibility;
+  VisSet: TMemberVisibilities;
   VisParts: TArray<string>;
   VisItem: string;
 begin
